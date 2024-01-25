@@ -6,9 +6,8 @@ $secondMovie = new Movie('Oppenheimer', 'A brief description of Oppenheimer', 'S
 $thirdMovie = new Movie('Tenet', 'A brief description of Tenet', 'Action', 2020);
 $fourthMovie = new Movie('Fight Club', 'A brief description of Fight Club', 'Dramatic', 1999);
 
-
 $moviesList = [$firstMovie, $secondMovie, $thirdMovie, $fourthMovie];
-var_dump($moviesList);
+// var_dump($moviesList);
 
 ?>
 <!DOCTYPE html>
@@ -26,31 +25,29 @@ var_dump($moviesList);
 
 <body>
     <header>
-        <h1 class="text-center">Movies with OOP</h1>
+        <h1 class="text-center mb-5 p-3">Movies with OOP</h1>
     </header>
     <main>
         <div class="container">
             <div class="row">
-                <article class="col-3">
-                    <?php foreach ($moviesList as $movie) { ?>
+                <?php foreach ($moviesList as $movie) { ?>
+                    <article class="col-3">
                         <div class="card" style="width: 100%;">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title"><?php $movie->getName() ?></h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title"><?php echo $movie->getName() ?></h5>
+                                <p class="card-text"><?php echo $movie->description ?></p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">Film category: <?php echo $movie->category ?></li>
+                                <li class="list-group-item">Year: <?php echo $movie->releaseYear ?></li>
                             </ul>
                             <div class="card-body">
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a href="#" class="card-link">Check info</a>
                             </div>
                         </div>
-                    <?php } ?>
-                </article>
+                    </article>
+                <?php } ?>
             </div>
         </div>
     </main>
